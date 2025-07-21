@@ -1,8 +1,17 @@
-# A simple class to represent a Player with a name and level.
-# The class overrides the __eq__ method to allow comparison based on attributes rather than object identity.
+# A simple class to represent a Player with attributes and a way to compare instances based on those attributes.
+# This class demonstrates how to override the equality operator (__eq__) to compare instances based on their attributes.
+# -------------------------------------------------------------------------------------------------------------------------------
+# This code is useful for scenarios where you want to compare objects based on their data rather than their memory addresses.
+# It allows for more intuitive comparisons, especially when dealing with collections of objects.
 # -------------------------------------------------------------------------------------------------------------------------------
 
 class Player:
+    def __init__(self, name, level):
+        """Initialize a Player with a name and level."""
+        self.name = name
+        self.level = level
+
+class Player2:
     def __init__(self, name, level):
         """Initialize a Player with a name and level."""
         self.name = name
@@ -24,6 +33,9 @@ print(a == b)   # This will print False because a and b are different instances,
 players = [a]
 print(b in players) # This will print False because b is not in the players list, even though it has the same attributes as a.
 # ---------------------------------------------------------------------------------------------------------------------------------
+a = Player2("Bob", 5)
+b = Player2("Bob", 5)
+
 # After overriding __eq__, the comparison will check the attributes.
 print(a == b)   # This will print True because a and b have the same name and level.
 
